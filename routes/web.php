@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+// START ADMIN PAGE 
+
+Route::get('/login','AdminLoginController@index');
+
+
+Route::get('/home','AdminController@index')->name('master');
+Route::get('/category/add-category','AdminController@add_category')->name('add-category');
+Route::get('/category/manage-category','AdminController@manage_category')->name('manage-category');
