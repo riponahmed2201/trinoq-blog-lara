@@ -19,6 +19,8 @@
 
  Route::get('/','WebController@index')->name('home');
  Route::get('/about','WebController@about')->name('about');
+ Route::get('/contact','WebController@showcontact')->name('contact');
+ Route::post('/contact/insert','WebController@insertContactData')->name('insertContactData');
 
 
 
@@ -36,7 +38,7 @@
 
 
 // START ADMIN PAGE 
- Route::get('/login','LoginController@index');
+Route::get('/login','LoginController@index');
 Route::get('/home','AdminController@index')->name('master');
 Route::get('/category/add-category','AdminController@add_category')->name('add-category');
 Route::get('/category/manage-category','AdminController@manage_category')->name('manage-category');

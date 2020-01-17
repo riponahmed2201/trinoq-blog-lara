@@ -92,7 +92,7 @@
                   <a class="nav-link" href="{{route('about')}}">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact</a>
+                  <a class="nav-link" href="{{route('contact')}}">Contact</a>
                 </li>
               </ul>
               
@@ -167,7 +167,7 @@
                   <div class="mb-5">
                     <h3>Quick Links</h3>
                     <ul class="list-unstyled">
-                      <li><a href="#">About Us</a></li>
+                      <li><a href="{{route('about')}}">About Us</a></li>
                       <li><a href="#">Travel</a></li>
                       <li><a href="#">Adventure</a></li>
                       <li><a href="#">Courses</a></li>
