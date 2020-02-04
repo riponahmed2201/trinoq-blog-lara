@@ -38,6 +38,28 @@
 
 
 // START ADMIN PAGE 
+Route::get('/dashboard', [
+	'uses'		=> 'AdminController@index',
+	'as'		=> 'dashboard'
+]);
+
+Route::get('/add-category', [
+	'uses'		=> 'AdminController@add_category',
+	'as'		=> 'add-category'
+]);
+
+Route::get('/manage-category', [
+	'uses'		=> 'AdminController@manage_category',
+	'as'		=> 'manage-category'
+]);
+Route::get('/add-post', [
+	'uses'		=> 'AdminController@add_post',
+	'as'		=> 'add-post'
+]);
+Route::get('/manage-post', [
+	'uses'		=> 'AdminController@manage_post',
+	'as'		=> 'manage-post'
+]);
 Route::get('/login','LoginController@index');
 Route::get('/home','AdminController@index')->name('master');
 Route::get('/category/add-category','AdminController@add_category')->name('add-category');

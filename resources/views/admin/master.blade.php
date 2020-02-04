@@ -1,162 +1,212 @@
-<!doctype html>
-<html lang="en" class="fixed left-sidebar-top">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Helsinki</title>
-    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{asset('/')}}assets/backend/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('/')}}assets/backend/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('/')}}assets/backend/favicon/favicon-16x16.png">
-    <!--load progress bar-->
-    <script src="{{asset('/')}}assets/backend/vendor/pace/pace.min.js"></script>
-    <link href="{{asset('/')}}assets/backend/vendor/pace/pace-theme-minimal.css" rel="stylesheet" />
+    <title>Gentelella Alela! | </title>
 
-    <!--BASIC css-->
-    <!-- ========================================================= -->
-    <link rel="stylesheet" href="{{asset('/')}}assets/backend/vendor/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="{{asset('/')}}assets/backend/vendor/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="{{asset('/')}}assets/backend/vendor/animate.css/animate.css">
-    <!--SECTION css-->
-    <!-- ========================================================= -->
-    <!--Notification msj-->
-    <link rel="stylesheet" href="{{asset('/')}}assets/backend/vendor/toastr/toastr.min.css">
-    <!--Magnific popup-->
-    <link rel="stylesheet" href="{{asset('/')}}assets/backend/vendor/magnific-popup/magnific-popup.css">
-    <!--TEMPLATE css-->
-    <!-- ========================================================= -->
-    <link rel="stylesheet" href="{{asset('/')}}assets/backend/stylesheets/css/style.css">
+    <!-- Bootstrap -->
+    <link href="{{asset('/')}}assets/backend/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{{asset('/')}}assets/backend/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{{asset('/')}}assets/backend/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="{{asset('/')}}assets/backend/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+	
+    <!-- bootstrap-progressbar -->
+    <link href="{{asset('/')}}assets/backend/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="{{asset('/')}}assets/backend/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="{{asset('/')}}assets/backend/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
+    <!-- Custom Theme Style -->
+    <link href="{{asset('/')}}assets/backend/build/css/custom.min.css" rel="stylesheet">
+  </head>
 
-</head>
-
-<body>
-    <div class="wrap">
-        <!-- page HEADER -->
-        <!-- ========================================================= -->
-        <div class="page-header">
-            <!-- LEFTSIDE header -->
-            <div class="leftside-header">
-                <div class="logo">
-                <a href="{{route('master')}}" class="on-click">
-                        <img alt="logo" src="{{asset('/')}}/assets/backend/images/header-logo.png" />
-                    </a>
-                </div>
-                <div id="menu-toggle" class="visible-xs toggle-left-sidebar" data-toggle-class="left-sidebar-open" data-target="html">
-                    <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
-                </div>
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Trinoq Technology</span></a>
             </div>
-            <!-- RIGHTSIDE header -->
-            <div class="rightside-header">
-                <div class="header-middle"></div>
-                <!--SEARCH HEADERBOX-->
-                <div class="header-section" id="search-headerbox">
-                    <input type="text" name="search" id="search" placeholder="Search...">
-                    <i class="fa fa-search search" id="search-icon" aria-hidden="true"></i>
-                    <div class="header-separator"></div>
-                </div>
-              
-                <!--USER HEADERBOX -->
-                <div class="header-section" id="user-headerbox">
-                    <div class="user-header-wrap">
-                        <div class="user-photo">
-                        <img alt="profile photo" src="{{asset('/')}}/assets/backend/images/avatar/avatar_user.jpg" />
-                        </div>
-                        <div class="user-info">
-                            <span class="user-name">Jane Doe</span>
-                            <span class="user-profile">Admin</span>
-                        </div>
-                        <i class="fa fa-plus icon-open" aria-hidden="true"></i>
-                        <i class="fa fa-minus icon-close" aria-hidden="true"></i>
-                    </div>
-                    <div class="user-options dropdown-box">
-                        <div class="drop-content basic">
-                            <ul>
-                                <li> <a href="pages_user-profile.html"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
-                                <li> <a href="pages_lock-screen.html"><i class="fa fa-lock" aria-hidden="true"></i> Lock Screen</a></li>
-                                <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Configurations</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-separator"></div>
-                <!--Log out -->
-                <div class="header-section">
-                    <a href="pages_sign-in.html" data-toggle="tooltip" data-placement="left" title="Logout"><i class="fa fa-sign-out log-out" aria-hidden="true"></i></a>
-                </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="{{asset('/')}}assets/backend/images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2>Trinoq Technology</h2>
+              </div>
             </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+          @include('admin.layouts.sidenavbar')
+            <!-- /sidebar menu -->
+
+          </div>
         </div>
-        
-        <!-- page BODY -->
-        <!-- ========================================================= -->
-        <div class="page-body">
-            <!-- LEFT SIDEBAR -->
-            <!-- ========================================================= -->
-            <div class="left-sidebar">
-                <!-- left sidebar HEADER -->
-                <div class="left-sidebar-header">
-                    <div class="left-sidebar-title">Trinoq</div>
-                    <div class="left-sidebar-toggle c-hamburger c-hamburger--htla hidden-xs" data-toggle-class="left-sidebar-collapsed" data-target="html">
-                        <span></span>
-                    </div>
-                </div>
-                <!-- NAVIGATION -->
-                <!-- ========================================================= -->
-                <div id="left-nav" class="nano">
-                    <div class="nano-content">
-                        <nav>
-                            <ul class="nav nav-left-lines" id="main-nav">
-                                <!--HOME-->
-                            <li class="active-item"><a href="{{route('master')}}"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a></li>
 
-                                <!--CATEGORY-->
-                                <li class="has-child-item close-item">
-                                    <a><i class="fa fa-list" aria-hidden="true"></i><span>Category</span> </a>
-                                    <ul class="nav child-nav level-1">
-                                    <li><a href="{{route('add-category')}}">Add Category</a></li>
-                                        <li><a href="{{route('manage-category')}}">Manage Category</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <!-- CONTENT -->
-            <!-- ========================================================= -->
-            <div class="content">
-                <!-- content HEADER -->
-                <!-- ========================================================= -->
-              @yield('content')
-                <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-            </div>
-            <!-- RIGHT SIDEBAR -->
-            <!-- ========================================================= -->
-           
-            <!--scroll to top-->
-            <a href="#" class="scroll-to-top"><i class="fa fa-angle-double-up"></i></a>
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+              <nav class="nav navbar-nav">
+              <ul class=" navbar-right">
+                <li class="nav-item dropdown open" style="padding-left: 15px;">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                    <img src="{{asset('/')}}assets/backend/images/img.jpg" alt="">John Doe
+                  </a>
+                  <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item"  href="javascript:;"> Profile</a>
+                      <a class="dropdown-item"  href="javascript:;">
+                        <span class="badge bg-red pull-right">50%</span>
+                        <span>Settings</span>
+                      </a>
+                  <a class="dropdown-item"  href="javascript:;">Help</a>
+                    <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  </div>
+                </li>
+
+                <li role="presentation" class="nav-item dropdown open">
+                  <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green">6</span>
+                  </a>
+                  <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
+                    <li class="nav-item">
+                      <a class="dropdown-item">
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="dropdown-item">
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="dropdown-item">
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="dropdown-item">
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <div class="text-center">
+                        <a class="dropdown-item">
+                          <strong>See All Alerts</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+        @yield('content')
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+         @include('admin.layouts.footer')
+        <!-- /footer content -->
+      </div>
     </div>
-    <!--BASIC scripts-->
-    <!-- ========================================================= -->
-    <script src="{{asset('/')}}assets/backend/vendor/jquery/jquery-1.12.3.min.js"></script>
-    <script src="{{asset('/')}}assets/backend/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="{{asset('/')}}assets/backend/vendor/nano-scroller/nano-scroller.js"></script>
-    <!--TEMPLATE scripts-->
-    <!-- ========================================================= -->
-    <script src="{{asset('/')}}assets/backend/javascripts/template-script.min.js"></script>
-    <script src="{{asset('/')}}assets/backend/javascripts/template-init.min.js"></script>
-    <!-- SECTION script and examples-->
-    <!-- ========================================================= -->
-    <!--Notification msj-->
-    <script src="{{asset('/')}}assets/backend/vendor/toastr/toastr.min.js"></script>
-    <!--morris chart-->
-    <script src="{{asset('/')}}assets/backend/vendor/chart-js/chart.min.js"></script>
-    <!--Gallery with Magnific popup-->
-    <script src="{{asset('/')}}assets/backend/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-    <!--Examples-->
-    {{-- <script src="{{asset('/')}}assets/backend/javascripts/examples/dashboard.js"></script> --}}
-</body>
 
+    <!-- jQuery -->
+    <script src="{{asset('/')}}assets/backend/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="{{asset('/')}}assets/backend/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FastClick -->
+    <script src="{{asset('/')}}assets/backend/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="{{asset('/')}}assets/backend/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="{{asset('/')}}assets/backend/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="{{asset('/')}}assets/backend/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="{{asset('/')}}assets/backend/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="{{asset('/')}}assets/backend/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="{{asset('/')}}assets/backend/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="{{asset('/')}}assets/backend/vendors/Flot/jquery.flot.js"></script>
+    <script src="{{asset('/')}}assets/backend/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="{{asset('/')}}assets/backend/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="{{asset('/')}}assets/backend/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="{{asset('/')}}assets/backend/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="{{asset('/')}}assets/backend/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="{{asset('/')}}assets/backend/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="{{asset('/')}}assets/backend/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="{{asset('/')}}assets/backend/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="{{asset('/')}}assets/backend/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="{{asset('/')}}assets/backend/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="{{asset('/')}}assets/backend/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="{{asset('/')}}assets/backend/vendors/moment/min/moment.min.js"></script>
+    <script src="{{asset('/')}}assets/backend/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="{{asset('/')}}assets/backend/build/js/custom.min.js"></script>
+	
+  </body>
 </html>

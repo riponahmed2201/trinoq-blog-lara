@@ -8,7 +8,7 @@ class AdminController extends Controller
 {
    public function index()
    {
-       return view('admin.master');
+       return view('admin.dashboard');
    }
 
    public function add_category()
