@@ -24,11 +24,22 @@
 
 
 
+//Admin login process
 
+Route::get('/login', [
+	'uses'		=> 'LoginController@index',
+	'as'		=> 'login'
+]);
 
+Route::post('/checklogin', [
+	'uses'		=> 'LoginController@checklogin',
+	'as'		=> 'checklogin'
+]);
 
-
-
+Route::get('/logout', [
+	'uses'		=> 'LoginController@logout',
+	'as'		=> 'logout'
+]);
 
 
 

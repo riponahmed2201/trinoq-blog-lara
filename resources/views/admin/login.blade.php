@@ -1,88 +1,75 @@
 <!doctype html>
-<html lang="en" class="fixed accounts sign-in">
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Helsinki</title>
-    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <!--BASIC css-->
-    <!-- ========================================================= -->
-    <link rel="stylesheet" href="{{asset('/')}}assets/backend/vendor/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="{{asset('/')}}assets/backend/vendor/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="{{asset('/')}}assets/backend/vendor/animate.css/animate.css">
-    <!--SECTION css-->
-    <!-- ========================================================= -->
-    <!--TEMPLATE css-->
-    <!-- ========================================================= -->
-    <link rel="stylesheet" href="{{asset('/')}}assets/backend/stylesheets/css/style.css">
-</head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
 
-<body>
-<div class="wrap">
-    <!-- page BODY -->
-    <!-- ========================================================= -->
-    <div class="page-body animated slideInDown">
-        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-        <!--LOGO-->
-        <div class="logo">
-            <img alt="logo" src="{{asset('/')}}assets/backend/images/logo-dark.png" />
+    <title>Admin | Login</title>
+  </head>
+  <body>
+    
+    <style type="text/css">
+        .box{
+         width:500px;
+         margin:0 auto;
+         border:1px solid #ccc;
+         margin-top: 150px;
+        }
+       </style>
+
+       <br />
+       <div class="container box">
+           <br>
+        <h3 align="center">Trinoq | Admin Login</h3><br />
+     
+        @if(isset(Auth::user()->email))
+         <script>window.location="/main/successlogin";</script>
+        @endif
+     
+        @if ($message = Session::get('error'))
+        <div class="alert alert-danger alert-block">
+         <button type="button" class="close" data-dismiss="alert">×</button>
+         <strong>{{ $message }}</strong>
         </div>
-        <div class="box">
-            <!--SIGN IN FORM-->
-            <div class="panel mb-none">
-                <div class="panel-content bg-scale-0">
-                <form action="#" method="POST">
-                    @csrf
-                        <div class="form-group mt-md">
-                            <span class="input-with-icon">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-                                <i class="fa fa-envelope"></i>
-                            </span>
-                        </div>
-                        <div class="form-group">
-                            <span class="input-with-icon">
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-                                <i class="fa fa-key"></i>
-                            </span>
-                        </div>
-                        <div class="form-group">
-                            <div class="checkbox-custom checkbox-primary">
-                                <input type="checkbox" id="remember-me" value="option1" checked>
-                                <label class="check" for="remember-me">Remember me</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-primary btn-block" value="Login">
-                            {{-- <a href="index.html" class="btn btn-primary btn-block">Sign in</a> --}}
-                        </div>
-                        <div class="form-group text-center">
-                            <a href="pages_forgot-password.html">Forgot password?</a>
-                            {{-- <hr/>
-                             <span>Don't have an account?</span>
-                            <a href="pages_register.html" class="btn btn-block mt-sm">Register</a> --}}
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-    </div>
-</div>
-<!--BASIC scripts-->
-<!-- ========================================================= -->
-<script src="{{asset('/')}}assets/backend/vendor/jquery/jquery-1.12.3.min.js"></script>
-<script src="{{asset('/')}}assets/backend/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="{{asset('/')}}assets/backend/vendor/nano-scroller/nano-scroller.js"></script>
-<!--TEMPLATE scripts-->
-<!-- ========================================================= -->
-<script src="{{asset('/')}}assets/backend/javascripts/template-script.min.js"></script>
-<script src="{{asset('/')}}assets/backend/javascripts/template-init.min.js"></script>
-<!-- SECTION script and examples-->
-<!-- ========================================================= -->
-</body>
+        @endif
+     
+        @if (count($errors) > 0)
+         <div class="alert alert-danger">
+          <ul>
+          @foreach($errors->all() as $error)
+           <li>{{ $error }}</li>
+          @endforeach
+          </ul>
+         </div>
+        @endif
+     
+        <form method="POST" action="{{ route('checklogin') }}">
+         @csrf
+         <div class="form-group">
+          <label>Enter Email</label>
+          <input type="email" name="email" class="form-control" />
+         </div>
+         <div class="form-group">
+          <label>Enter Password</label>
+          <input type="password" name="password" class="form-control" />
+         </div>
+         <div class="form-group">
+          <input type="submit" name="login" class="btn btn-success btn-block" value="Login" />
+         </div>
+        </form>
+       </div>
 
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
 </html>
