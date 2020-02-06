@@ -38,9 +38,7 @@ class WebController extends Controller
             $contact->email = $request->email;
             $contact->message = $request->message;
             $contact->remember_token =  Str::random(60);
-
             $contact->save();
-
             return redirect()->back()->with('success','Succesfully Added Your information!');
     }
 }

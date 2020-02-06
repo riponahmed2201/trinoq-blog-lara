@@ -55,7 +55,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2><strong>Welcome {{ Auth::user()->name }}</strong></h2>
+                <h2><strong>{{ Auth::user()->name }}</strong></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->

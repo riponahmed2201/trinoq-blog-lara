@@ -27,9 +27,6 @@
            <br>
         <h3 align="center">Trinoq | Admin Login</h3><br />
      
-        @if(isset(Auth::user()->email))
-         <script>window.location="/main/successlogin";</script>
-        @endif
      
         @if ($message = Session::get('error'))
         <div class="alert alert-danger alert-block">
@@ -52,7 +49,7 @@
          @csrf
          <div class="form-group">
           <label>Enter Email</label>
-          <input type="email" name="email" class="form-control" />
+          <input type="email" name="email" class="form-control" value="{{old('email')}}" />
          </div>
          <div class="form-group">
           <label>Enter Password</label>

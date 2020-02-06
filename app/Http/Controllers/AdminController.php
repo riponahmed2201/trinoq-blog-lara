@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
+use DB;
 
 class AdminController extends Controller
 {
@@ -15,10 +17,33 @@ class AdminController extends Controller
    {
        return view('admin.category.add_category');
    }
+   
+   public function save_category(Request $request)
+   {
+     $validate = $this->validate($request,[
+        'category_name' => 'required'
+       ]);
+
+       $category = new Category;
+       $category->category_name = $request->category_name;
+       $category->save();
+       
+      return redirect()->back()->with('success','Category Succesfully Added!');
+   }
 
    public function manage_category()
    {
-    return view('admin.category.manage_category');
+    //  $categories = Category::all();
+    $categories  = DB::select('select * from categories');
+     return view('admin.category.manage_category', compact('categories'));
   }
-
+public function delete_category($id)
+{
+  // $blog = Category::find($id);
+  $category = DB::table('categories')->where('id',$id)->first();
+ // $blog->delete();
+ print_r($category);
+ exit;
+ // return redirect()->back();
+}
 }

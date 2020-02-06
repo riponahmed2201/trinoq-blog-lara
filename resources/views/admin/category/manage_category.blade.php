@@ -22,51 +22,18 @@
 
 
                 <tbody>
+                  <?php $i = 1;?>
+                 @foreach ($categories as $category )
+                 <tr>
+                  <td>{{$i++}}</td>
+                  <td>{{$category->category_name}}</td>
+                  <td>
+                      <a href="#"> <i class="fa fa-edit btn btn-warning"></i></a>
+                      <a href="{{url('delete-category/.$category->id')}}"><i class="fa fa-trash btn btn-danger"></i></a>
+                  </td>
+                </tr>
+                 @endforeach
                  
-                  <tr>
-                    <td>1</td>
-                    <td>Lifestyle</td>
-                    <td>
-                        <a href="#"> <i class="fa fa-edit btn btn-warning"></i></a>
-                        <a href="#" onclick="isconfirm();"><i class="fa fa-trash btn btn-danger"></i></a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>2</td>
-                    <td>Food</td>
-                    <td>
-                        <a href="#"> <i class="fa fa-edit btn btn-warning"></i></a>
-                        <a href="#" onclick="isconfirm();"><i class="fa fa-trash btn btn-danger"></i></a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>3</td>
-                    <td>Adventure</td>
-                    <td>
-                        <a href="#"> <i class="fa fa-edit btn btn-warning"></i></a>
-                        <a href="#" onclick="isconfirm();"><i class="fa fa-trash btn btn-danger"></i></a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>4</td>
-                    <td>Traveller</td>
-                    <td>
-                        <a href="#"> <i class="fa fa-edit btn btn-warning"></i></a>
-                        <a href="#" onclick="isconfirm();"><i class="fa fa-trash btn btn-danger"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Bussiness</td>
-                    <td>
-                        <a href="#"> <i class="fa fa-edit btn btn-warning"></i></a>
-                        <a href="#" onclick="isconfirm();"><i class="fa fa-trash btn btn-danger"></i></a>
-                    </td>
-                  </tr>
-                
                 </tbody>
               </table>
             </div>
@@ -83,7 +50,7 @@
 <script>
 function isconfirm(){
 
-if(!confirm('Are you sure ?')){
+if(!confirm('Are you sure delete this category?')){
 event.preventDefault();
 return;
 }

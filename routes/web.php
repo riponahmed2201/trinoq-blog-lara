@@ -41,13 +41,6 @@ Route::get('/logout', [
 	'as'		=> 'logout'
 ]);
 
-
-
-
-
-
-
-
 // START ADMIN PAGE 
 Route::get('/dashboard', [
 	'uses'		=> 'AdminController@index',
@@ -58,6 +51,15 @@ Route::get('/add-category', [
 	'uses'		=> 'AdminController@add_category',
 	'as'		=> 'add-category'
 ]);
+Route::post('/save-category', [
+	'uses'		=> 'AdminController@save_category',
+	'as'		=> 'save-category'
+]);
+// Route::get('/delete-category/{id}', [
+// 	'uses'		=> 'AdminController@delete_category',
+// 	'as'		=> 'delete-category'
+// ]);
+Route::get('delete-category/{id}','AdminController@delete_category');
 
 Route::get('/manage-category', [
 	'uses'		=> 'AdminController@manage_category',
@@ -71,7 +73,7 @@ Route::get('/manage-post', [
 	'uses'		=> 'AdminController@manage_post',
 	'as'		=> 'manage-post'
 ]);
-Route::get('/login','LoginController@index');
-Route::get('/home','AdminController@index')->name('master');
-Route::get('/category/add-category','AdminController@add_category')->name('add-category');
-Route::get('/category/manage-category','AdminController@manage_category')->name('manage-category');
+// Route::get('/login','LoginController@index');
+// Route::get('/home','AdminController@index')->name('master');
+// Route::get('/category/add-category','AdminController@add_category')->name('add-category');
+// Route::get('/category/manage-category','AdminController@manage_category')->name('manage-category');
