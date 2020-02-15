@@ -28,8 +28,8 @@
                   <td>{{$i++}}</td>
                   <td>{{$category->category_name}}</td>
                   <td>
-                      <a href="#"> <i class="fa fa-edit btn btn-warning"></i></a>
-                      <a href="{{url('delete-category/.$category->id')}}"><i class="fa fa-trash btn btn-danger"></i></a>
+                      <a href="{{url('edit-category',$category->id)}}"> <i class="fa fa-edit btn btn-warning"></i></a>
+                      <a href="{{url('delete-category',$category->id)}}" onclick="isconfirm()"<i class="fa fa-trash btn btn-danger"></i></a>
                   </td>
                 </tr>
                  @endforeach

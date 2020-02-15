@@ -37,13 +37,16 @@ class AdminController extends Controller
     $categories  = DB::select('select * from categories');
      return view('admin.category.manage_category', compact('categories'));
   }
+public function edit_category($id)
+{
+  $category = DB::table('categories')->where('id',$id)->first();
+  return view('admin.category.edit_category',compact('category'));
+}
+
 public function delete_category($id)
 {
-  // $blog = Category::find($id);
-  $category = DB::table('categories')->where('id',$id)->first();
- // $blog->delete();
- print_r($category);
- exit;
- // return redirect()->back();
+  $category = DB::table('categories')->where('id',$id)->delete();
+  //$category->delete();
+  return back();
 }
 }

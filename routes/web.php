@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 
-//FRONEND 
+//Frontent
 
  Route::get('/','WebController@index')->name('home');
  Route::get('/about','WebController@about')->name('about');
@@ -25,7 +25,6 @@
 
 
 //Admin login process
-
 Route::get('/login', [
 	'uses'		=> 'LoginController@index',
 	'as'		=> 'login'
@@ -55,11 +54,15 @@ Route::post('/save-category', [
 	'uses'		=> 'AdminController@save_category',
 	'as'		=> 'save-category'
 ]);
-// Route::get('/delete-category/{id}', [
-// 	'uses'		=> 'AdminController@delete_category',
-// 	'as'		=> 'delete-category'
-// ]);
-Route::get('delete-category/{id}','AdminController@delete_category');
+Route::get('/delete-category/{id}', [
+	'uses'		=> 'AdminController@delete_category',
+	'as'		=> 'delete-category'
+]);
+
+Route::get('/edit-category/{id}', [
+	'uses'		=> 'AdminController@edit_category',
+	'as'		=> 'edit-category'
+]);
 
 Route::get('/manage-category', [
 	'uses'		=> 'AdminController@manage_category',
@@ -73,7 +76,3 @@ Route::get('/manage-post', [
 	'uses'		=> 'AdminController@manage_post',
 	'as'		=> 'manage-post'
 ]);
-// Route::get('/login','LoginController@index');
-// Route::get('/home','AdminController@index')->name('master');
-// Route::get('/category/add-category','AdminController@add_category')->name('add-category');
-// Route::get('/category/manage-category','AdminController@manage_category')->name('manage-category');
